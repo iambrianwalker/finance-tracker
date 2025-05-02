@@ -1,0 +1,5 @@
+pandas
+numpy
+sqlalchemy
+matplotlib  # if you're using it for visualizing data
+requests  # if you need to fetch financial data from APIs

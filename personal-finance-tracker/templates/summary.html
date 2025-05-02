@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Transaction Summary</h1>
+
+    <p><strong>Total Income:</strong> ${{ '%.2f'|format(income) }}</p>
+    <p><strong>Total Expenses:</strong> ${{ '%.2f'|format(expense) }}</p>
+    <p><strong>Balance:</strong> ${{ '%.2f'|format(balance) }}</p>
+
+    <br>
+    <a href="{{ url_for('index') }}">Back to Transactions</a>
+</body>
+</html>

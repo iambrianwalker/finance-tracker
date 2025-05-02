@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>All Transactions</h1>
+
+    <a href="{{ url_for('add_transaction') }}">Add Transaction</a> |
+    <a href="{{ url_for('summary') }}">View Summary</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ transaction.type.title() }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>${{ '%.2f'|format(transaction.amount) }}</td>
+                <td>{{ transaction.description }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No transactions found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
